@@ -70,6 +70,9 @@ let paistributario = prompt (" De donde eres " + nombreUsuario + " ?")
          case "Chile":
         calcularivaChi ()
         break
+         case "Uruguay":
+        calcularivaUru ()
+        break
     }
 
 //IVA ARGENTINA
@@ -106,5 +109,19 @@ if (ingresaPrecioProducto == "" ) {
 } else {
     alert (" Con IVA sale " + (ingresaPrecioProducto * 1.19))
     alert (" Igual quedaste afuera del mundial " + nombreUsuario)
+}
+}
+
+//IVA URUGUAY
+
+
+function calcularivaUru () {
+let ingresaPrecioProducto = prompt (nombreUsuario + " ,cuanto sale tu producto?")
+
+if (ingresaPrecioProducto == "" ) {
+    alert ("Por favor, coloca el precio")
+} else {
+    alert (" Con IVA sale " + (ingresaPrecioProducto * 1.22))
+    alert (" El mate es Argentino " + nombreUsuario)
 }
 }
