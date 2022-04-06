@@ -55,3 +55,13 @@ function calculadora(primerNumero, segundoNumero, operacion) {
     }
 }
 console.log(calculadora(10, 5, "*"))
+
+//CALCULAR IVA
+
+let producto = prompt (nombreUsuario + " ,cuanto sale tu producto?")
+
+if (producto == "" ) {
+    alert ("Por favor, coloca el precio")
+} else {
+    alert (" Con IVA sale " + (producto * 1.21))
+}
