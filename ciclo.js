@@ -58,14 +58,53 @@ console.log(calculadora(10, 5, "*"))
 
 //CALCULAR IVA
 
-function calculariva () {
-let ingresaProducto = prompt (nombreUsuario + " ,cuanto sale tu producto?")
+let paistributario = prompt (" De donde eres " + nombreUsuario + " ?")
 
-if (ingresaProducto == "" ) {
+    switch (paistributario) {
+        case "Argentina":
+        calcularivaArg ()
+        break
+         case "Colombia":
+        calcularivaCol ()
+        break
+         case "Chile":
+        calcularivaChi ()
+        break
+    }
+
+//IVA ARGENTINA
+
+function calcularivaArg () {
+let ingresaPrecioProducto = prompt (nombreUsuario + " ,cuanto sale tu producto?")
+
+if (ingresaPrecioProducto == "" ) {
     alert ("Por favor, coloca el precio")
 } else {
-    alert (" Con IVA sale " + (ingresaProducto * 1.21))
+    alert (" Con IVA sale " + (ingresaPrecioProducto * 1.21))
 }
 }
 
-calculariva ()
+//IVA COLOMBIA
+
+function calcularivaCol () {
+let ingresaPrecioProducto = prompt (nombreUsuario + " ,cuanto sale tu producto?")
+
+if (ingresaPrecioProducto == "" ) {
+    alert ("Por favor, coloca el precio")
+} else {
+    alert (" Con IVA sale " + (ingresaPrecioProducto * 1.19))
+}
+}
+
+//IVA CHILE
+
+function calcularivaChi () {
+let ingresaPrecioProducto = prompt (nombreUsuario + " ,cuanto sale tu producto?")
+
+if (ingresaPrecioProducto == "" ) {
+    alert ("Por favor, coloca el precio")
+} else {
+    alert (" Con IVA sale " + (ingresaPrecioProducto * 1.19))
+    alert (" Igual quedaste afuera del mundial " + nombreUsuario)
+}
+}
