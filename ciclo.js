@@ -125,3 +125,11 @@ if (ingresaPrecioProducto == "" ) {
     alert (" El mate es Argentino " + nombreUsuario)
 }
 }
+
+//FUNCION CONCATENADA
+
+function concatenar(var1, var2) {
+    console.log ("Concatenando...")
+    console.log(var1 + " " + var2)
+    console.log ("Concatenado")
+}
