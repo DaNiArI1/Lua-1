@@ -58,10 +58,14 @@ console.log(calculadora(10, 5, "*"))
 
 //CALCULAR IVA
 
-let producto = prompt (nombreUsuario + " ,cuanto sale tu producto?")
+function calculariva () {
+let ingresaProducto = prompt (nombreUsuario + " ,cuanto sale tu producto?")
 
-if (producto == "" ) {
+if (ingresaProducto == "" ) {
     alert ("Por favor, coloca el precio")
 } else {
-    alert (" Con IVA sale " + (producto * 1.21))
+    alert (" Con IVA sale " + (ingresaProducto * 1.21))
 }
+}
+
+calculariva ()
