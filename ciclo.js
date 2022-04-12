@@ -180,6 +180,68 @@ for(const producto of productosSoftware) {
     console.log(productosSoftware)
 }
 
+//OBJETO CONSTRUCTOR - STAFF
+
+function Staff(nombre, edad, direccion) {
+    this.nombre = nombre
+    this.edad = edad
+    this.direccion = direccion
+}
+
+const staff1 = new Staff("Daniel Arigüel", "24","Minas Tirith, cuarta casa a la izquierda")
+const staff2 = new Staff("El profe Arturo", "ni idea","Colombia")
+
+//Consulta dentro del objeto
+console.log( "nombre" in staff1)
+
+//O tambien
+for(const propiedad in staff1) {
+    console.log(propiedad + ":", staff1[propiedad])
+}
+
+//INCORPORANDO CLASES (Muy similar salvo que no va funcion ni console.log)
+
+class Clientes {
+
+    constructor(nombre, edad, domicilio) {
+        this.nombre = nombre
+        this.edad = edad
+        this.domicilio = domicilio
+    }
+
+    infoCliente() {
+        console.log("Los datos de " + this.nombre + "son: " + this.edad + this.domicilio)
+    }
+}
+
+const cliente1 = new Clientes("Oscar Martinez", 38, "Buenos Aires")
+const cliente2 = new Clientes("Jorge Ramirez", 78, "Tucuman")
+
+cliente1.infoCliente()
+cliente2.infoCliente()
+
+//CREANDO PRODUCTOS CON CLASES
+
+class Producto {
+
+    constructor(name, price) {
+        this.name = name.toUpperCase()
+        this.price = parseFloat(price)
+        this.sold = false
+        }
+
+        vender() {
+            this.sold = true
+        }
+}
+
+const producto1 = new Producto("Memoria RAM", 12.000)
+const producto2 = new Producto("Disco SSD", 9.000)
+
+producto1.vender()
+
+console.log(producto1)
+
 //INCORPORANDO ARRAYS
 
 const listaDePrecios = ["Placa de video = 200.000", "Reparacion de PC = 10.000", "Pagina web = 80.000"]
@@ -244,3 +306,32 @@ do {
 
 const otraListaDeCompras = listaComprasIva.concat([" :esta es tu lista de compras"])
 alert(otraListaDeCompras.join(" "))
+
+//Lista de compras
+
+function listaDelUsuario(type, price) {
+    this.type = type
+    this.price = price
+
+    this.item = 0
+    if(type == Reparacion) this.price = servicioReparacion
+    if(type == Monitor) this.price = productosHardware.id1
+    if(type == Mouse) this.price = productosHardware.id2
+    if(type == Teclado) this.price = productosHardware.id3
+    if(type == Camara) this.price = productosHardware.id4
+    if(type == Placa) this.price = productosHardware.id5
+    if(type == Windows) this.price = productosSoftware.id1
+    if(type == Web) this.price = productosSoftware.id2
+}
+
+while(true) {
+    alert("Vamos a hacer una lista de compras")
+    const type = prompt("Ingrese el producto que compro")
+    
+    const compra = new listaDelUsuario(type, price)
+    console.log (compra)
+
+    if(prompt("Compras algo mas?") == "n") {
+        break
+    }
+}
