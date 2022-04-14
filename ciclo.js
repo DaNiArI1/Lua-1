@@ -8,14 +8,6 @@ else {
     alert("Hola " + nombreUsuario)
 }
 
-//NUMERO DE ORDEN
-
-for (let i = 1; i <= 5; i++) {
-
-    alert(" Turno N "+i+" para "+nombreUsuario)
-    break
-}
-
 //MAYORIA DE EDAD
 
 const mayor = 18
@@ -154,38 +146,40 @@ function concatenar(var1, var2) {
 //CREANDO OBJETOS
 
 const servicioReparacion = [
-    {id:1, producto: "Reparacion de PC = 10.000"}
+    {id:1, producto: "Reparacion de PC = 10.000", price:10.000}
 ]
 const productosHardware = [
-    {id:1, producto: "Monitor = 65.000 "},
-    {id:2, producto: "Mouse = 1.200 "},
-    {id:3, producto: "Teclado = 5.000 "},
-    {id:4, producto: "Camara = 21.000 "},
-    {id:5, producto: "Placa de video = 200.000 "},
+    {id:1, producto: "Monitor = 65.000 ", price:65.000},
+    {id:2, producto: "Mouse = 1.200 ", price:1.200},
+    {id:3, producto: "Teclado = 5.000 ", price:5.000},
+    {id:4, producto: "Camara = 21.000 ", price:21.000},
+    {id:5, producto: "Placa de video = 200.000 ", price:200.000},
 ] 
 const productosSoftware = [
-    {id:1, producto: "Windows Original = 25.000"},
-    {id:2, producto: "Pagina Web = 80.000"},
+    {id:1, producto: "Windows Original = 25.000", price:25.000},
+    {id:2, producto: "Pagina Web = 80.000", price:80.000},
 ]
 
 //RECORRER OBJETOS
 
 for(const producto of productosHardware) {
-    console.log(productosHardware)
+    console.log("Estos son nuestros productos Hardware: " + productosHardware)
 }
 for(const producto of servicioReparacion) {
-    console.log(servicioReparacion)
+    console.log("Acerca de nuestro servicio de reparacion: " + servicioReparacion)
 }
 for(const producto of productosSoftware) {
-    console.log(productosSoftware)
+    console.log("Estos son nuestros productos Software: " + productosSoftware)
 }
 
 //OBJETO CONSTRUCTOR - STAFF
 
-function Staff(nombre, edad, direccion) {
-    this.nombre = nombre
-    this.edad = edad
-    this.direccion = direccion
+class Staff {
+    constructor(nombre, edad, direccion) {
+        this.nombre = nombre
+        this.edad = edad
+        this.direccion = direccion
+    }
 }
 
 const staff1 = new Staff("Daniel Arigüel", "24","Minas Tirith, cuarta casa a la izquierda")
@@ -210,12 +204,12 @@ class Clientes {
     }
 
     infoCliente() {
-        console.log("Los datos de " + this.nombre + "son: " + this.edad + this.domicilio)
+        console.log("Los datos de " + this.nombre + " son: " + this.edad + this.domicilio)
     }
 }
 
-const cliente1 = new Clientes("Oscar Martinez", 38, "Buenos Aires")
-const cliente2 = new Clientes("Jorge Ramirez", 78, "Tucuman")
+const cliente1 = new Clientes("Oscar Martinez", 38, " Buenos Aires")
+const cliente2 = new Clientes("Jorge Ramirez", 78, " Tucuman")
 
 cliente1.infoCliente()
 cliente2.infoCliente()
@@ -235,12 +229,12 @@ class Producto {
         }
 }
 
-const producto1 = new Producto("Memoria RAM", 12.000)
-const producto2 = new Producto("Disco SSD", 9.000)
+const productoRAM = new Producto("Memoria RAM", 12.000)
+const productoSSD = new Producto("Disco SSD", 9.000)
 
-producto1.vender()
+productoRAM.vender()
 
-console.log(producto1)
+console.log(productoRAM)
 
 //INCORPORANDO ARRAYS
 
@@ -309,19 +303,29 @@ alert(otraListaDeCompras.join(" "))
 
 //Lista de compras
 
-function listaDelUsuario(type, price) {
-    this.type = type
-    this.price = price
+class listaDelUsuario {
+    constructor(type, price) {
+        this.type = type
+        this.price = price
 
-    this.item = 0
-    if(type == Reparacion) this.price = servicioReparacion
-    if(type == Monitor) this.price = productosHardware.id1
-    if(type == Mouse) this.price = productosHardware.id2
-    if(type == Teclado) this.price = productosHardware.id3
-    if(type == Camara) this.price = productosHardware.id4
-    if(type == Placa) this.price = productosHardware.id5
-    if(type == Windows) this.price = productosSoftware.id1
-    if(type == Web) this.price = productosSoftware.id2
+        this.item = 0
+        if (type == Reparacion)
+            this.price = servicioReparacion[0].id
+        if (type == Monitor)
+            this.price = productosHardware[0].id
+        if (type == Mouse)
+            this.price = productosHardware[1].id
+        if (type == Teclado)
+            this.price = productosHardware[2].id
+        if (type == Camara)
+            this.price = productosHardware[3].id
+        if (type == Placa)
+            this.price = productosHardware[4].id
+        if (type == Windows)
+            this.price = productosSoftware[0].id
+        if (type == Web)
+            this.price = productosSoftware[1].id
+    }
 }
 
 while(true) {
