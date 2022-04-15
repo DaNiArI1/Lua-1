@@ -163,13 +163,13 @@ const productosSoftware = [
 //RECORRER OBJETOS
 
 for(const producto of productosHardware) {
-    console.log("Estos son nuestros productos Hardware: " + productosHardware)
+    console.log("Estos son nuestros productos Hardware: " + productosHardware.producto)
 }
 for(const producto of servicioReparacion) {
-    console.log("Acerca de nuestro servicio de reparacion: " + servicioReparacion)
+    console.log("Acerca de nuestro servicio de reparacion: " + servicioReparacion.producto)
 }
 for(const producto of productosSoftware) {
-    console.log("Estos son nuestros productos Software: " + productosSoftware)
+    console.log("Estos son nuestros productos Software: " + productosSoftware.producto)
 }
 
 //OBJETO CONSTRUCTOR - STAFF
@@ -309,21 +309,21 @@ class listaDelUsuario {
         this.price = price
 
         this.item = 0
-        if (type == Reparacion)
+        if (type == "Reparacion")
             this.price = servicioReparacion[0].id
-        if (type == Monitor)
+        if (type == "Monitor")
             this.price = productosHardware[0].id
-        if (type == Mouse)
+        if (type == "Mouse")
             this.price = productosHardware[1].id
-        if (type == Teclado)
+        if (type == "Teclado")
             this.price = productosHardware[2].id
-        if (type == Camara)
+        if (type == "Camara")
             this.price = productosHardware[3].id
-        if (type == Placa)
+        if (type == "Placa")
             this.price = productosHardware[4].id
-        if (type == Windows)
+        if (type == "Windows")
             this.price = productosSoftware[0].id
-        if (type == Web)
+        if (type == "Web")
             this.price = productosSoftware[1].id
     }
 }
@@ -332,10 +332,10 @@ while(true) {
     alert("Vamos a hacer una lista de compras")
     const type = prompt("Ingrese el producto que compro")
     
-    const compra = new listaDelUsuario(type, price)
+    const compra = new listaDelUsuario(type)
     console.log (compra)
 
-    if(prompt("Compras algo mas?") == "n") {
+    if(prompt("Compras algo mas?") == "no") {
         break
     }
 }
