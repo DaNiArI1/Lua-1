@@ -1309,4 +1309,31 @@ h2 {
     margin: 0 auto;
   }
 }
+
+.contenedor-productos {
+  margin-top: 1rem;
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  width: 98%;
+  margin-left: 1%;
+}
+
+.carritocard {
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.listado-compras {
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+}
 /*# sourceMappingURL=estilos.css.map */

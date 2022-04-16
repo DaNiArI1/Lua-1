@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos.css">
+    <!-- OPENGRAPH -->
+    <meta property="og:url" content="https://bluetideconsulting.com/"/>
+    <meta property="og:title" content="Empresa IT destinada al desarrollo WEB y venta de Hardware y Software"/>
+    <meta property="og:image" content="https://cdn.pixabay.com/photo/2018/05/18/15/30/web-design-3411373_960_720.jpg"/>
+    <meta property="og:description" content="Servicios de desarrollo y diseño de páginas web en HTML5, WordPress, e E-Commerce. Servicios de SEO, Venta de Hardware y Software"/>
+    <meta property="og:type" content="website"/>
+    <!-- OPENGRAPH END -->
+    <!-- FAVICON -->
     <link rel="icon" type="image/jpg" href="imagenes/logo2.svg"/>
-    <title>Contacto</title>
-    <meta name="description" content="En esta sección podrás encontrar el formulario para que nuestro Staff de Lua pueda contactarse contigo y brindarte el soporte o servicio que estas buscando. Encontraras también información acerca del uso de los datos">
+    <!-- TITULO-TITLE -->
+    <title>Compras</title>
+    <!-- SEO -->
+    <meta name="description" content="En Lua vas a encontrar las soluciones a tus inconvenientes informáticos, desde el desarrollo de páginas web hasta la compra de hardware. Innovación a tu alcance">
     <meta name="keywords" content="html,css,desarrollo web,venta de hardware, venta de software">
 </head>
 <body>
@@ -18,7 +28,7 @@
         <nav class="navbar navbar-light navbar-1 white">
 
           <!-- Navbar brand -->
-          <a class="navbar-brand" href="#">Contacto</a>
+          <a class="navbar-brand" href="#">Carrito</a>
 
           <!-- Collapse button -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
@@ -63,66 +73,20 @@
         <!--/.Navbar-->   
     </header>
 
-<main>    
-    <section>
-    <h1>Formulario</h1>
+<main class="contenedorCarrito">
+    <h1>Selecciona lo que quieras comprar</h1>
+      <div class="contenedor-productos">
+          
+      </div>
+      
+      <h2>Mi carro</h2>
+      <div class="listado-compras">
+          
+    </div> 
 
-    <form action="enviar.php" method="get" enctype="" class="form-group formulario">
-        <br>
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" placeholder="escribe tu nombre" required>
-        <br>
-        <label for="apellido">Apellido</label>
-        <input type="text" name="apellido" placeholder="escribe tu apellido" required>
-        <br>
-        <label for="password">Clave</label>
-        <input type="password" name="password" placeholder="elige una contraseña" required>
-        <br>
-        <label for="telefono">Telefono</label>
-        <input type="number" name="telefono" placeholder="ingresa tu numero de telefono">
-        <br>
-        <label for="email">Email</label>
-        <input type="email" name="password" placeholder="ingresa tu email" required>
-        <br>
-        <div class="dropdown">
-            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                Elige una opcion:
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Hombre</a>
-                <a class="dropdown-item" href="#">Mujer</a>
-                <a class="dropdown-item" href="#">Prefiero no especificar</a>
-            </div>
-        </div>
-        
-        <br>
-        <label for="comentarios">Comentarios</label>
-        <br>
-        <textarea name="comentarios" id="" cols="30" rows="10" placeholder="escribe tu comentario"></textarea>
-        <br>
-        <input type="submit" class="btn btn-danger" value="enviar">
-        <input type="reset" class="btn btn-danger" value="borrar todo">
-        <br>
-        <br>
-        <input type="checkbox" name="html">
-        <label for="html">Acepto los terminos y condiciones</label>
-    </section>
-    <!-- USO DE DATOS DEL USUARIO/USER DATA USE -->
-    <section class="usodatos">
-      <div class="usodatos--datos1">Para que usamos tus datos?</div>
-      <div class="usodatos--datos2">En base a la ley 27.321, art 3, tus datos seran enviados al ente regulador para aprobar tu proyecto en base</div>
-      <div class="usodatos--datos3">En el mismo se ven cuestion referidas al Copyright y que cumplas con la edad minima y la respectiva inscripcion de tu pagina web</div>
-    </section>
-    <!-- NUESTROS PARTNERS/OUR PARTNERS -->
-    <section>
-        <h2 class="sec1">Nuestros Partners</h2>
-            <div class="partners">
-                <div class="partner1"><img class="partnerimg1 rounded" src="imagenes/python.jpg" alt="" width="180" height="150"></div>
-                <div class="partner2"><img class="partnerimg2 rounded" src="https://i.blogs.es/ba4666/emele/1366_2000.jpg" alt="" width="180" height="150"></div>
-                <div class="partner3"><img class="partnerimg3 rounded" src="https://prestamos-personales.net/wp-content/uploads/2021/04/Uala.png" alt="" width="180" height="150"></div>
-            </section>
-    </section>
 </main>
+
+<!-- FOOTER -->
 
 <footer class="page-footer font-small stylish-color-dark pt-4">
 <h2>Nuestras redes</h2>
@@ -231,5 +195,9 @@
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
             <script src="Js/bootstrap.min.js"></script>
+
+            <!-- JAVASCRIPT -->
+
+        <script src="carrito.js"></script>
 </body>
 </html>

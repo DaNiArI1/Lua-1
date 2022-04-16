@@ -146,18 +146,18 @@ function concatenar(var1, var2) {
 //CREANDO OBJETOS
 
 const servicioReparacion = [
-    {id:1, producto: "Reparacion de PC = 10.000", price:10.000}
+    {id:1, name: "Reparacion de PC = 10.000", price:10.000, img:"imagenes/Javascript"}
 ]
 const productosHardware = [
-    {id:1, producto: "Monitor = 65.000 ", price:65.000},
-    {id:2, producto: "Mouse = 1.200 ", price:1.200},
-    {id:3, producto: "Teclado = 5.000 ", price:5.000},
-    {id:4, producto: "Camara = 21.000 ", price:21.000},
-    {id:5, producto: "Placa de video = 200.000 ", price:200.000},
+    {id:1, name: "Monitor = 65.000 ", price:65.000, img:"imagenes/Javascript/monitor.webp"},
+    {id:2, name: "Mouse = 1.200 ", price:1.200, img:"imagenes/Javascript/mouse.webp"},
+    {id:3, name: "Teclado = 5.000 ", price:5.000, img:"imagenes/Javascript/teclado.webp"},
+    {id:4, name: "Camara = 21.000 ", price:21.000, img:"imagenes/Javascript/camara.webp"},
+    {id:5, name: "Placa de video = 200.000 ", price:200.000, img:"imagenes/Javascript/placadevideo.webp"},
 ] 
 const productosSoftware = [
-    {id:1, producto: "Windows Original = 25.000", price:25.000},
-    {id:2, producto: "Pagina Web = 80.000", price:80.000},
+    {id:1, name: "Windows Original = 25.000", price:25.000},
+    {id:2, name: "Pagina Web = 80.000", price:80.000},
 ]
 
 //RECORRER OBJETOS
@@ -339,3 +339,77 @@ while(true) {
         break
     }
 }
+
+// CARRITO
+
+const contenedorProductos = document.querySelector('.contenedor-productos');
+const listadoCompras = document.querySelector('.listado-compras');
+const ComprasRealizadas = [];
+
+//Eventos 
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarProductos();
+})
+
+//Funciones
+function mostrarProductos() {
+    productosHardware.forEach(producto => {
+        //Scripting
+        const divProductoHardware = document.createElement('div');
+        divProductoHardware.className = 'card';
+
+        const imgProducto = document.createElement('img');
+        imgProducto.src = producto.img;
+        imgProducto.className = 'card-img-top carritocard';
+
+        const tituloProducto = document.createElement('h3');
+        tituloProducto.textContent = producto.name;
+        tituloProducto.classList.add("card-title");
+
+        const btnComprar = document.createElement('buttonComprar');
+        btnComprar.className = "btn btn-danger btn-comprar";
+        btnComprar.textContent = "Agregar al carro";
+        btnComprar.onclick = () => {
+            agregarAlCarro(producto.id)
+        };
+
+        divProductoHardware.appendChild(imgProducto);
+        divProductoHardware.appendChild(tituloProducto);
+        divProductoHardware.appendChild(btnComprar);
+        
+        contenedorProductos.appendChild(divProductoHardware);
+    })
+}
+
+//AGREGAR AL CARRITO
+
+function agregarAlCarro(id){
+    const compraSeleccionada = productosHardware.find( producto => productosHardware.id === id);
+    ComprasRealizadas.push(compraSeleccionada);
+    mostrarCompras(ComprasRealizadas);
+}
+
+function mostrarCompras( compras ) {
+    
+    listadoCompras.innerHTML =  "";
+
+    compras.forEach(producto => {
+        //Scripting
+        const divProductoHardware = document.createElement('div');
+        divProductoHardware.className = 'card';
+
+        const imgProducto = document.createElement('img');
+        imgProducto.src = producto.img;
+        imgProducto.className = 'card-img-top carritocard';
+
+        const tituloProducto = document.createElement('h3');
+        tituloProducto.textContent = producto.name;
+        tituloProducto.classList.add("card-title");
+
+        divProductoHardware.appendChild(imgProducto);
+        divProductoHardware.appendChild(tituloProducto);
+        
+        listadoCompras.appendChild(divProductoHardware);
+    })
+}
+

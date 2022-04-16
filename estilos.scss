@@ -1040,3 +1040,26 @@ datos3: comic sans ms,
     }
   }
   //CARDS NOTICIAS EN CARPETA CSS
+
+  //CARRITO DE COMPRAS
+
+  .contenedor-productos {
+    margin-top: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    width: 98%;
+    margin-left: 1%;
+}
+
+.carritocard {
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.listado-compras {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+}
