@@ -146,18 +146,18 @@ function concatenar(var1, var2) {
 //CREANDO OBJETOS
 
 const servicioReparacion = [
-    {id:1, name: "Reparacion de PC = 10.000", price:10.000, img:"imagenes/Javascript"}
+    {id:1, name: "Reparacion de PC = 10.000", price:10000, img:"imagenes/Javascript"}
 ]
 const productosHardware = [
-    {id:1, name: "Monitor = 65.000 ", price:65.000, img:"imagenes/Javascript/monitor.webp"},
-    {id:2, name: "Mouse = 1.200 ", price:1.200, img:"imagenes/Javascript/mouse.webp"},
-    {id:3, name: "Teclado = 5.000 ", price:5.000, img:"imagenes/Javascript/teclado.webp"},
-    {id:4, name: "Camara = 21.000 ", price:21.000, img:"imagenes/Javascript/camara.webp"},
-    {id:5, name: "Placa de video = 200.000 ", price:200.000, img:"imagenes/Javascript/placadevideo.webp"},
+    {id:1, name: "Monitor = 65.000 ", price:65000, img:"imagenes/Javascript/monitor.webp"},
+    {id:2, name: "Mouse = 1.200 ", price:1200, img:"imagenes/Javascript/mouse.webp"},
+    {id:3, name: "Teclado = 5.000 ", price:5000, img:"imagenes/Javascript/teclado.webp"},
+    {id:4, name: "Camara = 21.000 ", price:21000, img:"imagenes/Javascript/camara.webp"},
+    {id:5, name: "Placa de video = 200.000 ", price:200000, img:"imagenes/Javascript/placadevideo.webp"},
 ] 
 const productosSoftware = [
-    {id:1, name: "Windows Original = 25.000", price:25.000},
-    {id:2, name: "Pagina Web = 80.000", price:80.000},
+    {id:1, name: "Windows Original = 25.000", price:25000},
+    {id:2, name: "Pagina Web = 80.000", price:80000},
 ]
 
 //RECORRER OBJETOS
@@ -310,21 +310,21 @@ class listaDelUsuario {
 
         this.item = 0
         if (type == "Reparacion")
-            this.price = servicioReparacion[0].precio
+            this.price = servicioReparacion[0].price
         if (type == "Monitor")
-            this.price = productosHardware[0].precio
+            this.price = productosHardware[0].price
         if (type == "Mouse")
-            this.price = productosHardware[1].precio
+            this.price = productosHardware[1].price
         if (type == "Teclado")
-            this.price = productosHardware[2].precio
+            this.price = productosHardware[2].price
         if (type == "Camara")
-            this.price = productosHardware[3].precio
+            this.price = productosHardware[3].price
         if (type == "Placa")
-            this.price = productosHardware[4].precio
+            this.price = productosHardware[4].price
         if (type == "Windows")
-            this.price = productosSoftware[0].precio
+            this.price = productosSoftware[0].price
         if (type == "Web")
-            this.price = productosSoftware[1].precio
+            this.price = productosSoftware[1].price
     }
 }
 
@@ -384,7 +384,7 @@ function mostrarProductos() {
 //AGREGAR AL CARRITO
 
 function agregarAlCarro(id){
-    const compraSeleccionada = productosHardware.find( producto => producto.id === id);
+    const compraSeleccionada = productosHardware.find( producto => producprice=== id);
     ComprasRealizadas.push(compraSeleccionada);
     mostrarCompras(ComprasRealizadas);
 }
