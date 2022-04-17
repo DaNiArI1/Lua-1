@@ -310,21 +310,21 @@ class listaDelUsuario {
 
         this.item = 0
         if (type == "Reparacion")
-            this.price = servicioReparacion[0].id
+            this.price = servicioReparacion[0].precio
         if (type == "Monitor")
-            this.price = productosHardware[0].id
+            this.price = productosHardware[0].precio
         if (type == "Mouse")
-            this.price = productosHardware[1].id
+            this.price = productosHardware[1].precio
         if (type == "Teclado")
-            this.price = productosHardware[2].id
+            this.price = productosHardware[2].precio
         if (type == "Camara")
-            this.price = productosHardware[3].id
+            this.price = productosHardware[3].precio
         if (type == "Placa")
-            this.price = productosHardware[4].id
+            this.price = productosHardware[4].precio
         if (type == "Windows")
-            this.price = productosSoftware[0].id
+            this.price = productosSoftware[0].precio
         if (type == "Web")
-            this.price = productosSoftware[1].id
+            this.price = productosSoftware[1].precio
     }
 }
 
@@ -384,7 +384,7 @@ function mostrarProductos() {
 //AGREGAR AL CARRITO
 
 function agregarAlCarro(id){
-    const compraSeleccionada = productosHardware.find( producto => productosHardware.id === id);
+    const compraSeleccionada = productosHardware.find( producto => producto.id === id);
     ComprasRealizadas.push(compraSeleccionada);
     mostrarCompras(ComprasRealizadas);
 }
