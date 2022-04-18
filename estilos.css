@@ -1339,4 +1339,17 @@ h2 {
   margin-left: 1%;
   margin-top: 1rem;
 }
+
+.boton-vaciar {
+  background-color: red;
+  height: 100px;
+  width: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 /*# sourceMappingURL=estilos.css.map */

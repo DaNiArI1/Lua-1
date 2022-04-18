@@ -1066,3 +1066,11 @@ datos3: comic sans ms,
     margin-left: 1%;
     margin-top: 1rem;
 }
+
+.boton-vaciar {
+    background-color: red;
+    height: 100px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+}
