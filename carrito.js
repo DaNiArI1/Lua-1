@@ -384,7 +384,7 @@ function mostrarProductos() {
 //AGREGAR AL CARRITO
 
 function agregarAlCarro(id){
-    const compraSeleccionada = productosHardware.find( producto => producprice=== id);
+    const compraSeleccionada = productosHardware.find( producto => producto.id === id);
     ComprasRealizadas.push(compraSeleccionada);
     mostrarCompras(ComprasRealizadas);
 }
