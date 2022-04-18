@@ -411,5 +411,28 @@ function mostrarCompras( compras ) {
         
         listadoCompras.appendChild(divProductoHardware);
     })
+
+    //VACIAR CARRITO
+
+    const DOMbotonVaciar = document.querySelector('.boton-vaciar');
+
+    //EVENTOS
+
+    DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+
+
+    function vaciarCarrito() {
+
+        const btnComprar = document.createElement('div');
+        btnComprar.className = "btn btn-danger boton-vaciar";
+        btnComprar.textContent = "Vaciar carrito";
+        btnComprar.onclick = () => {
+            vaciarCarrito(producto.id)
+    };
+        
+        listadoCompras = [];
+        // Renderizamos los cambios
+        mostrarProductos();
+    }
 }
 
