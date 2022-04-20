@@ -343,7 +343,7 @@ while(true) {
 // CARRITO
 
 const contenedorProductos = document.querySelector('.contenedor-productos');
-const listadoCompras = document.querySelector('.listado-compras');
+let listadoCompras = document.querySelector('.listado-compras');
 const ComprasRealizadas = [];
 
 //Eventos 
@@ -426,16 +426,16 @@ function mostrarCompras( compras ) {
 
     function vaciarCarrito() {
 
-        const btnVaciar = document.createElement('div');
+        const btnVaciar = document.createElement('btnVaciar');
         btnVaciar.className = "btn btn-danger boton-vaciar";
-        btnVaciar.textContent = "Vaciar carrito";
+        btnVaciar.textContent = "Vaciar tu carrito";
         btnVaciar.onclick = () => {
             vaciarCarrito(producto.id)
     };
         
         listadoCompras = [];
         // Renderizamos los cambios
-        mostrarProductos();
+        mostrarCompras();
     }
 }
 
