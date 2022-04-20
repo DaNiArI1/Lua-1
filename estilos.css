@@ -1341,9 +1341,6 @@ h2 {
 }
 
 .boton-vaciar {
-  background-color: red;
-  height: 100px;
-  width: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1351,5 +1348,7 @@ h2 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 /*# sourceMappingURL=estilos.css.map */

@@ -1068,9 +1068,8 @@ datos3: comic sans ms,
 }
 
 .boton-vaciar {
-    background-color: red;
-    height: 100px;
-    width: 50px;
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
+    margin-left: 20px;
 }
