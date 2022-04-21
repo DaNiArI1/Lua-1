@@ -1340,7 +1340,7 @@ h2 {
   margin-top: 1rem;
 }
 
-.boton-vaciar {
+#boton-vaciar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

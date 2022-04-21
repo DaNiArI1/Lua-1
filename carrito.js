@@ -343,8 +343,8 @@ while(true) {
 // CARRITO
 
 const contenedorProductos = document.querySelector('.contenedor-productos');
-let listadoCompras = document.querySelector('.listado-compras');
-const ComprasRealizadas = [];
+const listadoCompras = document.querySelector('.listado-compras');
+let ComprasRealizadas = [];
 
 //Eventos 
 document.addEventListener('DOMContentLoaded', () => {
@@ -412,28 +412,40 @@ function mostrarCompras( compras ) {
         listadoCompras.appendChild(divProductoHardware);
     })
 
+//CALCULAR TOTAL
+
+    const DOMtotal = document.querySelector('#total');
+
+    DOMtotal.textContent = calcularTotal();
+
+    function calcularTotal() {
+        
+        return listadoCompras.reduce((total, item) => {
+            
+            const miItemHardware = productosHardware.filter((productosHardware) => {
+                return productosHardware.price === parseInt(item);
+            });
+            
+            return total + miItemHardware[0].price;
+        }, 0).toFixed(2);
+    }
+
 
     //VACIAR CARRITO
 
-    const DOMbotonVaciar = document.querySelector('.boton-vaciar');
+    const btnVaciar = document.getElementById('boton-vaciar');
 
     //EVENTOS
 
-    DOMbotonVaciar.addEventListener('click', () => {
+    btnVaciar.addEventListener('click', () => {
         vaciarCarrito();
     })
 
 
     function vaciarCarrito() {
-
-        const btnVaciar = document.createElement('btnVaciar');
-        btnVaciar.className = "btn btn-danger boton-vaciar";
-        btnVaciar.textContent = "Vaciar tu carrito";
-        btnVaciar.onclick = () => {
-            vaciarCarrito(producto.id)
-    };
+        listadoCompras.innerHTML = "";
         
-        listadoCompras = [];
+        ComprasRealizadas = [];
         // Renderizamos los cambios
         mostrarCompras();
     }
