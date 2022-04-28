@@ -80,3 +80,19 @@ function vaciarCarrito() {
 
 // Eventos
 DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+
+
+//MAYORIA DE EDAD
+
+const mayor = 18
+
+edad = parseInt(prompt(nombreUsuario + " ingresa tu edad"))
+    mayorDeEdad = edad >= mayor
+    if(mayorDeEdad) {
+        alert("Todo legal " + nombreUsuario + " pasa maquina")
+
+    }else{
+        alert("No loco voy a ir preso, raja de aca")
+    }
+
+alert("Te queremos " + nombreUsuario)

@@ -8,20 +8,6 @@ else {
     alert("Hola " + nombreUsuario)
 }
 
-//MAYORIA DE EDAD
-
-const mayor = 18
-
-edad = parseInt(prompt(nombreUsuario + " ingresa tu edad"))
-    mayorDeEdad = edad >= mayor
-    if(mayorDeEdad) {
-        alert("Todo legal " + nombreUsuario + " pasa maquina")
-
-    }else{
-        alert("No loco voy a ir preso, raja de aca")
-    }
-
-alert("Te queremos " + nombreUsuario)
 
 //CALCULADORA
 
@@ -50,7 +36,7 @@ console.log(calculadora(10, 5, "*"))
 
 //CALCULAR IVA
 
-let paistributario = prompt (" De donde eres " + nombreUsuario + " ?")
+/*let paistributario = prompt (" De donde eres " + nombreUsuario + " ?")
 
     switch (paistributario) {
         case "Argentina":
@@ -69,7 +55,7 @@ let paistributario = prompt (" De donde eres " + nombreUsuario + " ?")
         calcularivaPer ()
         break
     }
-
+*/
 //IVA ARGENTINA
 
 function calcularivaArg () {
@@ -288,7 +274,7 @@ console.log (listaDePreciosPerifericos)
 
 //Array con compras
 
-const listaComprasIva = []
+/*const listaComprasIva = []
 
 let cantidadDeCompras = 3
 
@@ -300,6 +286,7 @@ do {
 
 const otraListaDeCompras = listaComprasIva.concat([" :esta es tu lista de compras"])
 alert(otraListaDeCompras.join(" "))
+*/
 
 //Lista de compras
 
@@ -328,7 +315,7 @@ class listaDelUsuario {
     }
 }
 
-while(true) {
+/*while(true) {
     alert("Vamos a hacer una lista de compras")
     const type = prompt("Ingrese el producto que compro")
     
@@ -339,10 +326,12 @@ while(true) {
         break
     }
 }
+*/
 
 // CARRITO
 
 const contenedorProductos = document.querySelector('.contenedor-productos');
+const btnVaciar = document.getElementById('boton-vaciar');
 const listadoCompras = document.querySelector('.listado-compras');
 let ComprasRealizadas = [];
 
@@ -433,21 +422,20 @@ function mostrarCompras( compras ) {
 
     //VACIAR CARRITO
 
-    const btnVaciar = document.getElementById('boton-vaciar');
-
     //EVENTOS
 
     btnVaciar.addEventListener('click', () => {
+        console.log("Carrito limpio");
         vaciarCarrito();
     })
-
+}
 
     function vaciarCarrito() {
         listadoCompras.innerHTML = "";
         
         ComprasRealizadas = [];
-        // Renderizamos los cambios
+
         mostrarCompras();
     }
-}
+
 
