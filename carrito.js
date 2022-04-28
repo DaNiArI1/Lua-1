@@ -1,4 +1,4 @@
-//NOMBRE DE USUARIO
+/*NOMBRE DE USUARIO
 let nombreUsuario = prompt("Ingresa tu nombre de usuario")
 
 if (nombreUsuario =="") {
@@ -8,6 +8,7 @@ else {
     alert("Hola " + nombreUsuario)
 }
 
+*/
 
 //CALCULADORA
 
@@ -330,112 +331,184 @@ class listaDelUsuario {
 
 // CARRITO
 
-const contenedorProductos = document.querySelector('.contenedor-productos');
-const btnVaciar = document.getElementById('boton-vaciar');
-const listadoCompras = document.querySelector('.listado-compras');
-let ComprasRealizadas = [];
-
-//Eventos 
 document.addEventListener('DOMContentLoaded', () => {
-    mostrarProductos();
-})
 
-//Funciones
-function mostrarProductos() {
-    productosHardware.forEach(producto => {
-        //Scripting
-        const divProductoHardware = document.createElement('div');
-        divProductoHardware.className = 'card';
+    const servicioReparacion = [
+        {id:1, name: "Reparacion de PC", price:10000, img:"imagenes/Javascript"}
+    ]
+    const productosHardware = [
+        {id:1, name: "Monitor ", price:65000, img:"imagenes/Javascript/monitor.webp"},
+        {id:2, name: "Mouse ", price:1200, img:"imagenes/Javascript/mouse.webp"},
+        {id:3, name: "Teclado ", price:5000, img:"imagenes/Javascript/teclado.webp"},
+        {id:4, name: "Camara ", price:21000, img:"imagenes/Javascript/camara.webp"},
+        {id:5, name: "Placa de video ", price:200000, img:"imagenes/Javascript/placadevideo.webp"},
+    ] 
+    const productosSoftware = [
+        {id:1, name: "Windows Original", price:25000},
+        {id:2, name: "Pagina Web", price:80000},
+    ];
 
-        const imgProducto = document.createElement('img');
-        imgProducto.src = producto.img;
-        imgProducto.className = 'card-img-top carritocard';
-
-        const tituloProducto = document.createElement('h3');
-        tituloProducto.textContent = producto.name;
-        tituloProducto.classList.add("card-title");
-
-        const btnComprar = document.createElement('buttonComprar');
-        btnComprar.className = "btn btn-danger btn-comprar";
-        btnComprar.textContent = "Agregar al carro";
-        btnComprar.onclick = () => {
-            agregarAlCarro(producto.id)
-        };
-
-        divProductoHardware.appendChild(imgProducto);
-        divProductoHardware.appendChild(tituloProducto);
-        divProductoHardware.appendChild(btnComprar);
-        
-        contenedorProductos.appendChild(divProductoHardware);
-    })
-}
-
-//AGREGAR AL CARRITO
-
-function agregarAlCarro(id){
-    const compraSeleccionada = productosHardware.find( producto => producto.id === id);
-    ComprasRealizadas.push(compraSeleccionada);
-    mostrarCompras(ComprasRealizadas);
-}
-
-function mostrarCompras( compras ) {
-    
-    listadoCompras.innerHTML =  "";
-
-    compras.forEach(producto => {
-        //Scripting
-        const divProductoHardware = document.createElement('div');
-        divProductoHardware.className = 'card';
-
-        const imgProducto = document.createElement('img');
-        imgProducto.src = producto.img;
-        imgProducto.className = 'card-img-top carritocard';
-
-        const tituloProducto = document.createElement('h3');
-        tituloProducto.textContent = producto.name;
-        tituloProducto.classList.add("card-title");
-
-        divProductoHardware.appendChild(imgProducto);
-        divProductoHardware.appendChild(tituloProducto);
-        
-        listadoCompras.appendChild(divProductoHardware);
-    })
-
-//CALCULAR TOTAL
-
+    let carrito = [];
+    const divisa = '$';
+    const DOMitems = document.querySelector('#items');
+    const DOMcarrito = document.querySelector('#carrito');
     const DOMtotal = document.querySelector('#total');
+    const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+    const miLocalStorage = window.localStorage;
 
-    DOMtotal.textContent = calcularTotal();
+    // Funciones
 
-    function calcularTotal() {
+    /**
+    * Dibuja todos los productos a partir de la base de datos. No confundir con el carrito
+    */
+    function renderizarProductos() {
+        productosHardware.forEach((info) => {
+            // Estructura
+            const miNodo = document.createElement('div');
+            miNodo.classList.add('card', 'col-sm-4');
+            // Body
+            const miNodoCardBody = document.createElement('div');
+            miNodoCardBody.classList.add('card-body');
+            // Titulo
+            const miNodoTitle = document.createElement('h5');
+            miNodoTitle.classList.add('card-title');
+            miNodoTitle.textContent = info.name;
+            // Imagen
+            const miNodoImagen = document.createElement('img');
+            miNodoImagen.classList.add('img-fluid');
+            miNodoImagen.setAttribute('src', info.img);
+            // Precio
+            const miNodoPrecio = document.createElement('p');
+            miNodoPrecio.classList.add('card-text');
+            miNodoPrecio.textContent = `${info.price}${divisa}`;
+            // Boton 
+            const miNodoBoton = document.createElement('button');
+            miNodoBoton.classList.add('btn', 'btn-primary');
+            miNodoBoton.textContent = '+';
+            miNodoBoton.setAttribute('marcador', info.id);
+            miNodoBoton.addEventListener('click', añadirProductoAlCarrito);
+            // Insertamos
+            miNodoCardBody.appendChild(miNodoImagen);
+            miNodoCardBody.appendChild(miNodoTitle);
+            miNodoCardBody.appendChild(miNodoPrecio);
+            miNodoCardBody.appendChild(miNodoBoton);
+            miNodo.appendChild(miNodoCardBody);
+            DOMitems.appendChild(miNodo);
+        });
+    }
+
+    
+    //Evento para añadir un producto al carrito de la compra
+    function añadirProductoAlCarrito(evento) {
         
-        return listadoCompras.reduce((total, item) => {
-            
-            const miItemHardware = productosHardware.filter((productosHardware) => {
-                return productosHardware.price === parseInt(item);
+        carrito.push(evento.target.getAttribute('marcador'))
+        // Actualizamos el carrito 
+        renderizarCarrito();
+        // Actualizamos el LocalStorage
+        guardarCarritoEnLocalStorage();
+    }
+
+    /**
+    * Dibuja todos los productos guardados en el carrito
+    */
+    function renderizarCarrito() {
+        // Vaciamos todo el html
+        DOMcarrito.textContent = '';
+        // Quitamos los duplicados
+        const carritoSinDuplicados = [...new Set(carrito)];
+        // Generamos los Nodos a partir de carrito
+        carritoSinDuplicados.forEach((item) => {
+            // Obtenemos el item que necesitamos de la variable base de datos
+            const miItem = productosHardware.filter((itemproductosHardware) => {
+                // ¿Coincide las id? Solo puede existir un caso
+                return itemproductosHardware.id === parseInt(item);
             });
-            
-            return total + miItemHardware[0].price;
+            // Cuenta el número de veces que se repite el producto
+            const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+                // ¿Coincide las id? Incremento el contador, en caso contrario no mantengo
+                return itemId === item ? total += 1 : total;
+            }, 0);
+            // Creamos el nodo del item del carrito
+            const miNodo = document.createElement('li');
+            miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+            miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].name} - ${miItem[0].price}${divisa}`;
+            // Boton de borrar
+            const miBoton = document.createElement('button');
+            miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+            miBoton.textContent = 'X';
+            miBoton.style.marginLeft = '1rem';
+            miBoton.dataset.item = item;
+            miBoton.addEventListener('click', borrarItemCarrito);
+            // Mezclamos nodos
+            miNodo.appendChild(miBoton);
+            DOMcarrito.appendChild(miNodo);
+        });
+        // Renderizamos el precio total en el HTML
+        DOMtotal.textContent = calcularTotal();
+    }
+
+    /**
+    * Evento para borrar un elemento del carrito
+    */
+    function borrarItemCarrito(evento) {
+        // Obtenemos el producto ID que hay en el boton pulsado
+        const id = evento.target.dataset.item;
+        // Borramos todos los productos
+        carrito = carrito.filter((carritoId) => {
+            return carritoId !== id;
+        });
+        // volvemos a renderizar
+        renderizarCarrito();
+        // Actualizamos el LocalStorage
+        guardarCarritoEnLocalStorage();
+
+    }
+
+    /**
+     * Calcula el precio total teniendo en cuenta los productos repetidos
+     */
+    function calcularTotal() {
+        // Recorremos el array del carrito 
+        return carrito.reduce((total, item) => {
+            // De cada elemento obtenemos su precio
+            const miItem = productosHardware.filter((itemproductosHardware) => {
+                return itemproductosHardware.id === parseInt(item);
+            });
+            // Los sumamos al total
+            return total + miItem[0].price;
         }, 0).toFixed(2);
     }
 
-
-    //VACIAR CARRITO
-
-    //EVENTOS
-
-    btnVaciar.addEventListener('click', () => {
-        console.log("Carrito limpio");
-        vaciarCarrito();
-    })
-}
-
+    /**
+    * Varia el carrito y vuelve a dibujarlo
+    */
     function vaciarCarrito() {
-        listadoCompras.innerHTML = "";
-        
-        ComprasRealizadas = [];
+        // Limpiamos los productos guardados
+        carrito = [];
+        // Renderizamos los cambios
+        renderizarCarrito();
+        // Borra LocalStorage
+        localStorage.clear();
 
-        mostrarCompras();
     }
 
+    function guardarCarritoEnLocalStorage () {
+        miLocalStorage.setItem('carrito', JSON.stringify(carrito));
+    }
 
+    function cargarCarritoDeLocalStorage () {
+        // ¿Existe un carrito previo guardado en LocalStorage?
+        if (miLocalStorage.getItem('carrito') !== null) {
+            // Carga la información
+            carrito = JSON.parse(miLocalStorage.getItem('carrito'));
+        }
+    }
+
+    // Eventos
+    DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+
+    // Inicio
+    cargarCarritoDeLocalStorage();
+    renderizarProductos();
+    renderizarCarrito();
+});

@@ -75,19 +75,21 @@
 
 <main class="contenedorCarrito">
     <h1>Selecciona lo que quieras comprar</h1>
-      <div class="contenedor-productos"> 
-      </div>
+    <div class="row">
+      <!-- Elementos generados a partir del JSON -->
+      <main id="items" class="col-sm-8 row"></main>
+      <!-- Carrito -->
+      <aside class="col-sm-4">
+          <h2>Carrito</h2>
+          <!-- Elementos del carrito -->
+          <ul id="carrito" class="list-group"></ul>
+          <hr>
+          <!-- Precio total -->
+          <p class="text-center preciototal">Total: <span id="total"></span>$</p>
+          <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+      </aside>
+  </div>
       
-      <h2>Mi carro</h2>
-
-      <div class="listado-compras"> 
-    </div>
-
-    <!-- Precio total -->
-    <p class="text-right">Total: <span id="compratotal"></span>$</p>
-
-    <button class="btn btn-danger" id="boton-vaciar">Vaciar Carrito</button>
-
 </main>
 
 <!-- FOOTER -->
