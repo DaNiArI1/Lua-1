@@ -380,8 +380,8 @@ document.addEventListener('DOMContentLoaded', () => {
             miNodoPrecio.textContent = `${info.price}${divisa}`;
             // Boton 
             const miNodoBoton = document.createElement('button');
-            miNodoBoton.classList.add('btn', 'btn-primary');
-            miNodoBoton.textContent = '+';
+            miNodoBoton.classList.add('btn', 'btn-danger');
+            miNodoBoton.textContent = 'Comprar';
             miNodoBoton.setAttribute('marcador', info.id);
             miNodoBoton.addEventListener('click', añadirProductoAlCarrito);
             // Appends
