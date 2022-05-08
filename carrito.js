@@ -397,6 +397,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     //Evento para añadir un producto al carrito de la compra
     function añadirProductoAlCarrito(evento) {
+
+        Toastify({
+            text: "Añadido a tus compras",
+            className: "info",
+            duration: 2000,
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            }
+          }).showToast();
         
         carrito.push(evento.target.getAttribute('marcador'))
         
@@ -445,6 +454,14 @@ document.addEventListener('DOMContentLoaded', () => {
     //Borrar Item
 
     function borrarItemCarrito(evento) {
+
+        Toastify({
+            text: "Item Eliminado",
+            className: "info",
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            }
+          }).showToast();
         
         const id = evento.target.dataset.item;
         
@@ -475,6 +492,14 @@ document.addEventListener('DOMContentLoaded', () => {
     //VACIAR CARRITO
 
     function vaciarCarrito() {
+
+        Toastify({
+            text: "Vaciaste tu carrito",
+            className: "info",
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            }
+          }).showToast();
         
         carrito = [];
         
