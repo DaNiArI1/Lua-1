@@ -1,0 +1,5 @@
+[
+    {"id":1, "name": "Reparacion de PC", "price":10000},
+    {"id":2, "name": "Windows Original", "price":25000},
+    {"id":3, "name": "Pagina Web", "price":80000}
+]

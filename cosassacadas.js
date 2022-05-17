@@ -96,3 +96,32 @@ edad = parseInt(prompt(nombreUsuario + " ingresa tu edad"))
     }
 
 alert("Te queremos " + nombreUsuario)
+
+/*while(true) {
+    alert("Vamos a hacer una lista de compras")
+    const type = prompt("Ingrese el producto que compro")
+    
+    const compra = new listaDelUsuario(type)
+    console.log (compra)
+
+    if(prompt("Compras algo mas?") == "no") {
+        break
+    }
+}
+*/
+
+fetch("aca la url")
+    .then((response) => {
+        console.log(response)
+        console.log(response.status)
+        if(response.status != 200) {
+            throw new Error ("Error en la peticion")
+        }
+
+        console.log("Peticion finalizada")
+        return response.json()
+    })
+    .then((json) => {
+        console.log("Mostrando la informacion")
+        console.log(json)
+    })

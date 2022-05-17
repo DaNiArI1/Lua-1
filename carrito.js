@@ -316,19 +316,6 @@ class listaDelUsuario {
     }
 }
 
-/*while(true) {
-    alert("Vamos a hacer una lista de compras")
-    const type = prompt("Ingrese el producto que compro")
-    
-    const compra = new listaDelUsuario(type)
-    console.log (compra)
-
-    if(prompt("Compras algo mas?") == "no") {
-        break
-    }
-}
-*/
-
 // CARRITO
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -529,3 +516,20 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarProductos();
     renderizarCarrito();
 });
+
+const listafetch = document.querySelector ("#listadofetch")
+
+fetch("/futurostock.json")
+    .then( resp => resp.json())
+    .then ( data => {
+
+        data.forEach( futurostock => {
+            const li = document.createElement("li")
+            li.innerHTML = `
+                <h4>${futurostock.name}</h4>
+                <p>${futurostock.price}</p>
+            `
+
+            listafetch.appendChild(li)
+        })
+    })
