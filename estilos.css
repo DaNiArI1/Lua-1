@@ -1363,4 +1363,8 @@ h2 {
 #listadofetch {
   color: white;
 }
+
+#items {
+  row-gap: 15px;
+}
 /*# sourceMappingURL=estilos.css.map */

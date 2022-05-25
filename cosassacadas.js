@@ -125,3 +125,90 @@ fetch("aca la url")
         console.log("Mostrando la informacion")
         console.log(json)
     })
+
+    /*NOMBRE DE USUARIO
+let nombreUsuario = prompt("Ingresa tu nombre de usuario")
+
+if (nombreUsuario =="") {
+    alert("No pusiste nada crack")
+}
+else {
+    alert("Hola " + nombreUsuario)
+}
+
+*/
+
+
+//FUNCION CONCATENADA
+
+function concatenar(var1, var2) {
+    console.log ("Concatenando...")
+    console.log(var1 + " " + var2)
+    console.log ("Concatenado")
+}
+
+//INCORPORANDO ARRAYS
+
+const listaDePrecios = ["Placa de video = 200.000", "Reparacion de PC = 10.000", "Pagina web = 80.000"]
+
+console.log(listaDePrecios.length)
+
+console.log("Listado de precios ")
+for (let index=0; index < listaDePrecios.length; index++) {
+    console.log(listaDePrecios[index])
+}
+
+//Agregando Array a uno ya existente
+
+listaDePrecios.push ("Software de Windows Original = 25.000 ")
+
+console.log (listaDePrecios)
+
+//Agregando Array, primero en la lista ya existente
+
+listaDePrecios.unshift ("Precios correspondientes a Abril ")
+
+console.log (listaDePrecios)
+
+//Con listaDePrecios.pop() sacamos el ultimo item de la lista, con listaDePrecios.shift() sacamos el primero.
+
+//Con listaDePrecios.splice (2,2) eliminamos datos dentro del Array. Dentro del parentesis el primer numero es la posicion del dato, que empiezan desde 0, y el segundo la cantidad de datos que queremos eliminar, desde ese que marcamos en el primer numero en adelante.
+
+//Si quisiera convertir un Array en un string lo hago con .JOIN (). Ejemplo console.log( listaDePrecios.join(" ,")
+
+//Lista de productos nuevos
+
+const listaDePrecios2 = [" Monitor = 65.000 ", "Mouse = 1.200 "]
+const listaDePrecios3 = [" Teclado = 5.000 ", "Camara = 21.200 "]
+
+const todosLosPrecios = listaDePrecios.concat(listaDePrecios2, listaDePrecios3)
+
+console.log (todosLosPrecios)
+
+//Subarray de un Array
+
+const listaDePreciosPerifericos = listaDePrecios.slice(5, 8)
+
+console.log (listaDePreciosPerifericos)
+
+//Para sacar el indice de un elemento en un array se usa console.log( listaDeProductos.indexOf("Aca iria el nombre del que queremos sacar el numero de indice") )
+
+//Para saber si un elementos se encuentra en el Array se usa console.log( listaDeProductos.includes ("El nombre del que queremos saber si esta en la lista") )
+
+//El reverse es destructivo y cambia el orden de atras hacia adelante, hay que usarlo con cuidado. Ejemplo: listaDeProductos.reverse ()
+
+//Array con compras
+
+/*const listaComprasIva = []
+
+let cantidadDeCompras = 3
+
+do {
+    const listaDeCompras = prompt(" Que te gustaria comprar? ")
+    listaComprasIva.push(listaDeCompras)
+    console.log(listaComprasIva.length)
+} while(listaComprasIva.length != cantidadDeCompras)
+
+const otraListaDeCompras = listaComprasIva.concat([" :esta es tu lista de compras"])
+alert(otraListaDeCompras.join(" "))
+*/

@@ -1,15 +1,3 @@
-/*NOMBRE DE USUARIO
-let nombreUsuario = prompt("Ingresa tu nombre de usuario")
-
-if (nombreUsuario =="") {
-    alert("No pusiste nada crack")
-}
-else {
-    alert("Hola " + nombreUsuario)
-}
-
-*/
-
 //CALCULADORA
 
 function calculadora(primerNumero, segundoNumero, operacion) {
@@ -121,15 +109,6 @@ if (ingresaPrecioProducto == "" ) {
 }
 }
 
-//FUNCION CONCATENADA
-
-function concatenar(var1, var2) {
-    console.log ("Concatenando...")
-    console.log(var1 + " " + var2)
-    console.log ("Concatenado")
-}
-
-
 //CREANDO OBJETOS
 
 const servicioReparacion = [
@@ -180,7 +159,7 @@ for(const propiedad in staff1) {
     console.log(propiedad + ":", staff1[propiedad])
 }
 
-//INCORPORANDO CLASES (Muy similar salvo que no va funcion ni console.log)
+//INCORPORANDO CLASES
 
 class Clientes {
 
@@ -223,72 +202,6 @@ productoRAM.vender()
 
 console.log(productoRAM)
 
-//INCORPORANDO ARRAYS
-
-const listaDePrecios = ["Placa de video = 200.000", "Reparacion de PC = 10.000", "Pagina web = 80.000"]
-
-console.log(listaDePrecios.length)
-
-console.log("Listado de precios ")
-for (let index=0; index < listaDePrecios.length; index++) {
-    console.log(listaDePrecios[index])
-}
-
-//Agregando Array a uno ya existente
-
-listaDePrecios.push ("Software de Windows Original = 25.000 ")
-
-console.log (listaDePrecios)
-
-//Agregando Array, primero en la lista ya existente
-
-listaDePrecios.unshift ("Precios correspondientes a Abril ")
-
-console.log (listaDePrecios)
-
-//Con listaDePrecios.pop() sacamos el ultimo item de la lista, con listaDePrecios.shift() sacamos el primero.
-
-//Con listaDePrecios.splice (2,2) eliminamos datos dentro del Array. Dentro del parentesis el primer numero es la posicion del dato, que empiezan desde 0, y el segundo la cantidad de datos que queremos eliminar, desde ese que marcamos en el primer numero en adelante.
-
-//Si quisiera convertir un Array en un string lo hago con .JOIN (). Ejemplo console.log( listaDePrecios.join(" ,")
-
-//Lista de productos nuevos
-
-const listaDePrecios2 = [" Monitor = 65.000 ", "Mouse = 1.200 "]
-const listaDePrecios3 = [" Teclado = 5.000 ", "Camara = 21.200 "]
-
-const todosLosPrecios = listaDePrecios.concat(listaDePrecios2, listaDePrecios3)
-
-console.log (todosLosPrecios)
-
-//Subarray de un Array
-
-const listaDePreciosPerifericos = listaDePrecios.slice(5, 8)
-
-console.log (listaDePreciosPerifericos)
-
-//Para sacar el indice de un elemento en un array se usa console.log( listaDeProductos.indexOf("Aca iria el nombre del que queremos sacar el numero de indice") )
-
-//Para saber si un elementos se encuentra en el Array se usa console.log( listaDeProductos.includes ("El nombre del que queremos saber si esta en la lista") )
-
-//El reverse es destructivo y cambia el orden de atras hacia adelante, hay que usarlo con cuidado. Ejemplo: listaDeProductos.reverse ()
-
-//Array con compras
-
-/*const listaComprasIva = []
-
-let cantidadDeCompras = 3
-
-do {
-    const listaDeCompras = prompt(" Que te gustaria comprar? ")
-    listaComprasIva.push(listaDeCompras)
-    console.log(listaComprasIva.length)
-} while(listaComprasIva.length != cantidadDeCompras)
-
-const otraListaDeCompras = listaComprasIva.concat([" :esta es tu lista de compras"])
-alert(otraListaDeCompras.join(" "))
-*/
-
 //Lista de compras
 
 class listaDelUsuario {
@@ -326,9 +239,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const productosHardware = [
         {id:1, name: "Monitor ", price:65000, img:"imagenes/Javascript/monitor.webp"},
         {id:2, name: "Mouse ", price:1200, img:"imagenes/Javascript/mouse.webp"},
-        {id:3, name: "Teclado ", price:5000, img:"imagenes/Javascript/teclado.webp"},
+        {id:3, name: "Teclado ", price:5000, img:"imagenes/Javascript/teclado.jpg"},
         {id:4, name: "Camara ", price:21000, img:"imagenes/Javascript/camara.webp"},
         {id:5, name: "Placa de video ", price:200000, img:"imagenes/Javascript/placadevideo.webp"},
+        {id:6, name: "HTC VIVE ", price:500000, img:"imagenes/Javascript/htc.webp"},
     ] 
     const productosSoftware = [
         {id:1, name: "Windows Original", price:25000},
@@ -390,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
             className: "info",
             duration: 2000,
             style: {
-              background: "linear-gradient(to right, #00b09b, #96c93d)",
+              background: "linear-gradient(to right, rgb(37, 11, 11), rgb(98, 21, 21)",
             }
           }).showToast();
         
@@ -446,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
             text: "Item Eliminado",
             className: "info",
             style: {
-              background: "linear-gradient(to right, #00b09b, #96c93d)",
+              background: "linear-gradient(to right, rgb(37, 11, 11), rgb(98, 21, 21)",
             }
           }).showToast();
         
@@ -484,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
             text: "Vaciaste tu carrito",
             className: "info",
             style: {
-              background: "linear-gradient(to right, #00b09b, #96c93d)",
+              background: "linear-gradient(to right, rgb(37, 11, 11), rgb(98, 21, 21)",
             }
           }).showToast();
         
